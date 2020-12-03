@@ -1,0 +1,43 @@
+@mixin one-txt-cut() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*多行溢出 手机端使用*/
+@mixin txt-cut($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 2; */
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &::-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollbar-none {
+  scrollbar-width: none; /*Firefox*/
+  -ms-overflow-style: none; /*IE10+*/
+  &::-webkit-scrollbar {
+    display: none; /*ChromeSafari*/
+  }
+}
